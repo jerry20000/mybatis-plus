@@ -1,0 +1,30 @@
+server:
+  port: 8088
+  #context-path: /
+
+spring:
+  application:
+    name: demo-mybatis
+  profiles.active: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+# Logger Config
+logging:
+  level:
+    cn.sisyphe.test: debug
+
+mybatis-plus:
+  # 扫描 mapper.xml
+  #mapper-locations: classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath*:cn/sisyphe/test/*/mapper/*.xml
+  type-aliases-package: cn.sisyphe.test.*.model
+
+---
+spring:
+  profiles: test
+  datasource:
+    url: 'jdbc:mysql://192.168.21.141:3306/demo_ly?useUnicode=true&characterEncoding=utf-8&useSSL=false'
+    username: root
+    password: 123456

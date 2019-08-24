@@ -1,0 +1,7 @@
+
+Isquid:S1168["+Return an empty collection instead of null.(¥¹ï8·ó±è¦-
+bsquid:CallToDeprecatedMethod"3Remove this use of "description"; it is deprecated.(Ì—ç‰8ª Èç¦-
+tsquid:S1488("]Immediately return this expression instead of assigning it to the temporary variable "users".(ÃÈ¶½
+nsquid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(³À£Ñÿÿÿÿÿ8ğßÔê¦-
+nsquid:CommentedOutCodeLine1"<This block of commented-out lines of code should be removed.(Ô¤Ğõûÿÿÿÿ8’Ì“ë¦-
+squid:S14882"^Immediately return this expression instead of assigning it to the temporary variable "result".(æˆÍéûÿÿÿÿ8ğßÔê¦-

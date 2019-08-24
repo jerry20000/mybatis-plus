@@ -1,0 +1,6 @@
+cn\sisyphe\demo\user\mapper\UserMapper.class
+cn\sisyphe\demo\user\web\UserController.class
+cn\sisyphe\demo\user\model\User.class
+cn\sisyphe\demo\DemoApplication.class
+cn\sisyphe\demo\user\service\impl\UserServiceImpl.class
+cn\sisyphe\demo\user\service\UserService.class

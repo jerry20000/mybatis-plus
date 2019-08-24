@@ -1,0 +1,13 @@
+
+Qsquid:S18544"5Remove this useless assignment to local variable "i".(ù¬šÜüÿÿÿÿ
+\squid:S46843"@Replace this persistent entity with a simple POJO or DTO object.(İ«ıûÿÿÿÿ
+ysquid:S1488P"]Immediately return this expression instead of assigning it to the temporary variable "users".(«ƒé¨şÿÿÿÿ
+tsquid:S1488%"]Immediately return this expression instead of assigning it to the temporary variable "users".(ò½è§
+xsquid:S1488B"\Immediately return this expression instead of assigning it to the temporary variable "user".(Ù“™Äøÿÿÿÿ
+[squid:CallToDeprecatedMethod"3Remove this use of "description"; it is deprecated.(Ì—ç‰
+ssquid:S1488-"]Immediately return this expression instead of assigning it to the temporary variable "users".(â¾·j
+usquid:UselessImportCheck
+"LRemove this unused import 'org.springframework.scheduling.annotation.Async'.(İë€Ûúÿÿÿÿ
+psquid:S1488;"YImmediately return this expression instead of assigning it to the temporary variable "i".(ê†öµ
+xsquid:S1488I"\Immediately return this expression instead of assigning it to the temporary variable "user".(™ÊëÚùÿÿÿÿ
+Bsquid:S14814"&Remove this unused "i" local variable.(ù¬šÜüÿÿÿÿ

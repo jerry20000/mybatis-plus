@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PreTjMapper">
+  <resultMap id="BaseResultMap" type="cn.sisyphe.logistics.yh.domain.tj.entity.PreTj">
+    <id column="tj_id" jdbcType="CHAR" property="tjId" />
+    <result column="station_id" jdbcType="CHAR" property="stationId" />
+    <result column="d_id" jdbcType="CHAR" property="dId" />
+    <result column="total_count" jdbcType="INTEGER" property="totalCount" />
+    <result column="total_amount" jdbcType="INTEGER" property="totalAmount" />
+    <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
+    <result column="o_id_operator" jdbcType="CHAR" property="oIdOperator" />
+    <result column="o_id_input" jdbcType="CHAR" property="oIdInput" />
+    <result column="input_date" jdbcType="TIMESTAMP" property="inputDate" />
+    <result column="last_mod_date" jdbcType="TIMESTAMP" property="lastModDate" />
+    <result column="last_trans_date" jdbcType="TIMESTAMP" property="lastTransDate" />
+    <result column="f_id" jdbcType="CHAR" property="fId" />
+    <result column="is_verify" jdbcType="CHAR" property="isVerify" />
+    <result column="o_id_verify" jdbcType="CHAR" property="oIdVerify" />
+    <result column="verify_date" jdbcType="TIMESTAMP" property="verifyDate" />
+    <result column="is_destroy" jdbcType="CHAR" property="isDestroy" />
+    <result column="destroy_date" jdbcType="TIMESTAMP" property="destroyDate" />
+    <result column="o_id_destroy" jdbcType="CHAR" property="oIdDestroy" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="receipts_class" jdbcType="CHAR" property="receiptsClass" />
+    <result column="notrigger" jdbcType="CHAR" property="notrigger" />
+    <result column="is_avoid" jdbcType="CHAR" property="isAvoid" />
+    <result column="last_tj_date" jdbcType="TIMESTAMP" property="lastTjDate" />
+    <result column="station_id_aim" jdbcType="CHAR" property="stationIdAim" />
+    <result column="tk_flag" jdbcType="CHAR" property="tkFlag" />
+    <result column="station_id_in" jdbcType="CHAR" property="stationIdIn" />
+    <result column="source_id" jdbcType="CHAR" property="sourceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tj_id, station_id, d_id, total_count, total_amount, total_money, o_id_operator, o_id_input, 
+    input_date, last_mod_date, last_trans_date, f_id, is_verify, o_id_verify, verify_date, 
+    is_destroy, destroy_date, o_id_destroy, memo, receipts_class, notrigger, is_avoid, 
+    last_tj_date, station_id_aim, tk_flag, station_id_in, source_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pre_tj
+    where tj_id = #{tjId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from pre_tj
+    where tj_id = #{tjId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.sisyphe.logistics.yh.domain.tj.entity.PreTj">
+    insert into pre_tj (tj_id, station_id, d_id, 
+      total_count, total_amount, total_money, 
+      o_id_operator, o_id_input, input_date, 
+      last_mod_date, last_trans_date, f_id, 
+      is_verify, o_id_verify, verify_date, 
+      is_destroy, destroy_date, o_id_destroy, 
+      memo, receipts_class, notrigger, 
+      is_avoid, last_tj_date, station_id_aim, 
+      tk_flag, station_id_in, source_id
+      )
+    values (#{tjId,jdbcType=CHAR}, #{stationId,jdbcType=CHAR}, #{dId,jdbcType=CHAR}, 
+      #{totalCount,jdbcType=INTEGER}, #{totalAmount,jdbcType=INTEGER}, #{totalMoney,jdbcType=DECIMAL}, 
+      #{oIdOperator,jdbcType=CHAR}, #{oIdInput,jdbcType=CHAR}, #{inputDate,jdbcType=TIMESTAMP}, 
+      #{lastModDate,jdbcType=TIMESTAMP}, #{lastTransDate,jdbcType=TIMESTAMP}, #{fId,jdbcType=CHAR}, 
+      #{isVerify,jdbcType=CHAR}, #{oIdVerify,jdbcType=CHAR}, #{verifyDate,jdbcType=TIMESTAMP}, 
+      #{isDestroy,jdbcType=CHAR}, #{destroyDate,jdbcType=TIMESTAMP}, #{oIdDestroy,jdbcType=CHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{receiptsClass,jdbcType=CHAR}, #{notrigger,jdbcType=CHAR}, 
+      #{isAvoid,jdbcType=CHAR}, #{lastTjDate,jdbcType=TIMESTAMP}, #{stationIdAim,jdbcType=CHAR}, 
+      #{tkFlag,jdbcType=CHAR}, #{stationIdIn,jdbcType=CHAR}, #{sourceId,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.sisyphe.logistics.yh.domain.tj.entity.PreTj">
+    insert into pre_tj
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tjId != null">
+        tj_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="dId != null">
+        d_id,
+      </if>
+      <if test="totalCount != null">
+        total_count,
+      </if>
+      <if test="totalAmount != null">
+        total_amount,
+      </if>
+      <if test="totalMoney != null">
+        total_money,
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator,
+      </if>
+      <if test="oIdInput != null">
+        o_id_input,
+      </if>
+      <if test="inputDate != null">
+        input_date,
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date,
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date,
+      </if>
+      <if test="fId != null">
+        f_id,
+      </if>
+      <if test="isVerify != null">
+        is_verify,
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify,
+      </if>
+      <if test="verifyDate != null">
+        verify_date,
+      </if>
+      <if test="isDestroy != null">
+        is_destroy,
+      </if>
+      <if test="destroyDate != null">
+        destroy_date,
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class,
+      </if>
+      <if test="notrigger != null">
+        notrigger,
+      </if>
+      <if test="isAvoid != null">
+        is_avoid,
+      </if>
+      <if test="lastTjDate != null">
+        last_tj_date,
+      </if>
+      <if test="stationIdAim != null">
+        station_id_aim,
+      </if>
+      <if test="tkFlag != null">
+        tk_flag,
+      </if>
+      <if test="stationIdIn != null">
+        station_id_in,
+      </if>
+      <if test="sourceId != null">
+        source_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tjId != null">
+        #{tjId,jdbcType=CHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        #{dId,jdbcType=CHAR},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="oIdOperator != null">
+        #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="oIdInput != null">
+        #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModDate != null">
+        #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fId != null">
+        #{fId,jdbcType=CHAR},
+      </if>
+      <if test="isVerify != null">
+        #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptsClass != null">
+        #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="isAvoid != null">
+        #{isAvoid,jdbcType=CHAR},
+      </if>
+      <if test="lastTjDate != null">
+        #{lastTjDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationIdAim != null">
+        #{stationIdAim,jdbcType=CHAR},
+      </if>
+      <if test="tkFlag != null">
+        #{tkFlag,jdbcType=CHAR},
+      </if>
+      <if test="stationIdIn != null">
+        #{stationIdIn,jdbcType=CHAR},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.sisyphe.logistics.yh.domain.tj.entity.PreTj">
+    update pre_tj
+    <set>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        d_id = #{dId,jdbcType=CHAR},
+      </if>
+      <if test="totalCount != null">
+        total_count = #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null">
+        total_amount = #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        total_money = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="oIdInput != null">
+        o_id_input = #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="inputDate != null">
+        input_date = #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fId != null">
+        f_id = #{fId,jdbcType=CHAR},
+      </if>
+      <if test="isVerify != null">
+        is_verify = #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        is_destroy = #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class = #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        notrigger = #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="isAvoid != null">
+        is_avoid = #{isAvoid,jdbcType=CHAR},
+      </if>
+      <if test="lastTjDate != null">
+        last_tj_date = #{lastTjDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationIdAim != null">
+        station_id_aim = #{stationIdAim,jdbcType=CHAR},
+      </if>
+      <if test="tkFlag != null">
+        tk_flag = #{tkFlag,jdbcType=CHAR},
+      </if>
+      <if test="stationIdIn != null">
+        station_id_in = #{stationIdIn,jdbcType=CHAR},
+      </if>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=CHAR},
+      </if>
+    </set>
+    where tj_id = #{tjId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.sisyphe.logistics.yh.domain.tj.entity.PreTj">
+    update pre_tj
+    set station_id = #{stationId,jdbcType=CHAR},
+      d_id = #{dId,jdbcType=CHAR},
+      total_count = #{totalCount,jdbcType=INTEGER},
+      total_amount = #{totalAmount,jdbcType=INTEGER},
+      total_money = #{totalMoney,jdbcType=DECIMAL},
+      o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      o_id_input = #{oIdInput,jdbcType=CHAR},
+      input_date = #{inputDate,jdbcType=TIMESTAMP},
+      last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      f_id = #{fId,jdbcType=CHAR},
+      is_verify = #{isVerify,jdbcType=CHAR},
+      o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      is_destroy = #{isDestroy,jdbcType=CHAR},
+      destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      receipts_class = #{receiptsClass,jdbcType=CHAR},
+      notrigger = #{notrigger,jdbcType=CHAR},
+      is_avoid = #{isAvoid,jdbcType=CHAR},
+      last_tj_date = #{lastTjDate,jdbcType=TIMESTAMP},
+      station_id_aim = #{stationIdAim,jdbcType=CHAR},
+      tk_flag = #{tkFlag,jdbcType=CHAR},
+      station_id_in = #{stationIdIn,jdbcType=CHAR},
+      source_id = #{sourceId,jdbcType=CHAR}
+    where tj_id = #{tjId,jdbcType=CHAR}
+  </update>
+</mapper>

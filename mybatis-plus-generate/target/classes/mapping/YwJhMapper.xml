@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.YwJhMapper">
+  <resultMap id="BaseResultMap" type="com.pojo.YwJh">
+    <id column="jh_id" jdbcType="CHAR" property="jhId" />
+    <result column="station_id" jdbcType="CHAR" property="stationId" />
+    <result column="d_id" jdbcType="CHAR" property="dId" />
+    <result column="arrear_date" jdbcType="TIMESTAMP" property="arrearDate" />
+    <result column="input_date" jdbcType="TIMESTAMP" property="inputDate" />
+    <result column="o_id_input" jdbcType="CHAR" property="oIdInput" />
+    <result column="o_id_operator" jdbcType="CHAR" property="oIdOperator" />
+    <result column="total_amount" jdbcType="INTEGER" property="totalAmount" />
+    <result column="total_count" jdbcType="INTEGER" property="totalCount" />
+    <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
+    <result column="real_money" jdbcType="DECIMAL" property="realMoney" />
+    <result column="buy_style_id" jdbcType="CHAR" property="buyStyleId" />
+    <result column="receipts_class" jdbcType="CHAR" property="receiptsClass" />
+    <result column="i_class_id" jdbcType="CHAR" property="iClassId" />
+    <result column="f_id" jdbcType="CHAR" property="fId" />
+    <result column="tax_rate" jdbcType="DECIMAL" property="taxRate" />
+    <result column="sale_style_id" jdbcType="CHAR" property="saleStyleId" />
+    <result column="pici" jdbcType="VARCHAR" property="pici" />
+    <result column="is_verify" jdbcType="CHAR" property="isVerify" />
+    <result column="o_id_verify" jdbcType="CHAR" property="oIdVerify" />
+    <result column="verify_date" jdbcType="TIMESTAMP" property="verifyDate" />
+    <result column="is_destroy" jdbcType="CHAR" property="isDestroy" />
+    <result column="destroy_date" jdbcType="TIMESTAMP" property="destroyDate" />
+    <result column="o_id_destroy" jdbcType="CHAR" property="oIdDestroy" />
+    <result column="other_money" jdbcType="DECIMAL" property="otherMoney" />
+    <result column="stock_arrear" jdbcType="CHAR" property="stockArrear" />
+    <result column="o_id_stock" jdbcType="CHAR" property="oIdStock" />
+    <result column="stock_date" jdbcType="TIMESTAMP" property="stockDate" />
+    <result column="money_arrear" jdbcType="CHAR" property="moneyArrear" />
+    <result column="money_date" jdbcType="TIMESTAMP" property="moneyDate" />
+    <result column="o_id_money" jdbcType="CHAR" property="oIdMoney" />
+    <result column="f_number" jdbcType="INTEGER" property="fNumber" />
+    <result column="prn" jdbcType="CHAR" property="prn" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="pz_id" jdbcType="VARCHAR" property="pzId" />
+    <result column="pz_flag" jdbcType="CHAR" property="pzFlag" />
+    <result column="pack_flag" jdbcType="CHAR" property="packFlag" />
+    <result column="notrigger" jdbcType="CHAR" property="notrigger" />
+    <result column="shelf_flag" jdbcType="CHAR" property="shelfFlag" />
+    <result column="consignment_style_id" jdbcType="CHAR" property="consignmentStyleId" />
+    <result column="source_code" jdbcType="VARCHAR" property="sourceCode" />
+    <result column="source_send_date" jdbcType="TIMESTAMP" property="sourceSendDate" />
+    <result column="aim_station" jdbcType="CHAR" property="aimStation" />
+    <result column="train_pack" jdbcType="INTEGER" property="trainPack" />
+    <result column="transport_number" jdbcType="VARCHAR" property="transportNumber" />
+    <result column="takegoods_money" jdbcType="DECIMAL" property="takegoodsMoney" />
+    <result column="takegoods_date" jdbcType="TIMESTAMP" property="takegoodsDate" />
+    <result column="total_count_original" jdbcType="INTEGER" property="totalCountOriginal" />
+    <result column="real_money_original" jdbcType="DECIMAL" property="realMoneyOriginal" />
+    <result column="total_money_original" jdbcType="DECIMAL" property="totalMoneyOriginal" />
+    <result column="total_amount_original" jdbcType="INTEGER" property="totalAmountOriginal" />
+    <result column="o_id_take" jdbcType="CHAR" property="oIdTake" />
+    <result column="o_id_open" jdbcType="CHAR" property="oIdOpen" />
+    <result column="last_mod_date" jdbcType="TIMESTAMP" property="lastModDate" />
+    <result column="last_trans_date" jdbcType="TIMESTAMP" property="lastTransDate" />
+    <result column="buy_reason" jdbcType="VARCHAR" property="buyReason" />
+    <result column="sh_flag" jdbcType="CHAR" property="shFlag" />
+    <result column="th_style_id" jdbcType="CHAR" property="thStyleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    jh_id, station_id, d_id, arrear_date, input_date, o_id_input, o_id_operator, total_amount, 
+    total_count, total_money, real_money, buy_style_id, receipts_class, i_class_id, f_id, 
+    tax_rate, sale_style_id, pici, is_verify, o_id_verify, verify_date, is_destroy, destroy_date, 
+    o_id_destroy, other_money, stock_arrear, o_id_stock, stock_date, money_arrear, money_date, 
+    o_id_money, f_number, prn, memo, pz_id, pz_flag, pack_flag, notrigger, shelf_flag, 
+    consignment_style_id, source_code, source_send_date, aim_station, train_pack, transport_number, 
+    takegoods_money, takegoods_date, total_count_original, real_money_original, total_money_original, 
+    total_amount_original, o_id_take, o_id_open, last_mod_date, last_trans_date, buy_reason, 
+    sh_flag, th_style_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yw_jh
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from yw_jh
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.YwJh">
+    insert into yw_jh (jh_id, station_id, d_id, 
+      arrear_date, input_date, o_id_input, 
+      o_id_operator, total_amount, total_count, 
+      total_money, real_money, buy_style_id, 
+      receipts_class, i_class_id, f_id, 
+      tax_rate, sale_style_id, pici, 
+      is_verify, o_id_verify, verify_date, 
+      is_destroy, destroy_date, o_id_destroy, 
+      other_money, stock_arrear, o_id_stock, 
+      stock_date, money_arrear, money_date, 
+      o_id_money, f_number, prn, memo, 
+      pz_id, pz_flag, pack_flag, notrigger, 
+      shelf_flag, consignment_style_id, source_code, 
+      source_send_date, aim_station, train_pack, 
+      transport_number, takegoods_money, takegoods_date, 
+      total_count_original, real_money_original, 
+      total_money_original, total_amount_original, 
+      o_id_take, o_id_open, last_mod_date, 
+      last_trans_date, buy_reason, sh_flag, 
+      th_style_id)
+    values (#{jhId,jdbcType=CHAR}, #{stationId,jdbcType=CHAR}, #{dId,jdbcType=CHAR}, 
+      #{arrearDate,jdbcType=TIMESTAMP}, #{inputDate,jdbcType=TIMESTAMP}, #{oIdInput,jdbcType=CHAR}, 
+      #{oIdOperator,jdbcType=CHAR}, #{totalAmount,jdbcType=INTEGER}, #{totalCount,jdbcType=INTEGER}, 
+      #{totalMoney,jdbcType=DECIMAL}, #{realMoney,jdbcType=DECIMAL}, #{buyStyleId,jdbcType=CHAR}, 
+      #{receiptsClass,jdbcType=CHAR}, #{iClassId,jdbcType=CHAR}, #{fId,jdbcType=CHAR}, 
+      #{taxRate,jdbcType=DECIMAL}, #{saleStyleId,jdbcType=CHAR}, #{pici,jdbcType=VARCHAR}, 
+      #{isVerify,jdbcType=CHAR}, #{oIdVerify,jdbcType=CHAR}, #{verifyDate,jdbcType=TIMESTAMP}, 
+      #{isDestroy,jdbcType=CHAR}, #{destroyDate,jdbcType=TIMESTAMP}, #{oIdDestroy,jdbcType=CHAR}, 
+      #{otherMoney,jdbcType=DECIMAL}, #{stockArrear,jdbcType=CHAR}, #{oIdStock,jdbcType=CHAR}, 
+      #{stockDate,jdbcType=TIMESTAMP}, #{moneyArrear,jdbcType=CHAR}, #{moneyDate,jdbcType=TIMESTAMP}, 
+      #{oIdMoney,jdbcType=CHAR}, #{fNumber,jdbcType=INTEGER}, #{prn,jdbcType=CHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{pzId,jdbcType=VARCHAR}, #{pzFlag,jdbcType=CHAR}, #{packFlag,jdbcType=CHAR}, #{notrigger,jdbcType=CHAR}, 
+      #{shelfFlag,jdbcType=CHAR}, #{consignmentStyleId,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, 
+      #{sourceSendDate,jdbcType=TIMESTAMP}, #{aimStation,jdbcType=CHAR}, #{trainPack,jdbcType=INTEGER}, 
+      #{transportNumber,jdbcType=VARCHAR}, #{takegoodsMoney,jdbcType=DECIMAL}, #{takegoodsDate,jdbcType=TIMESTAMP}, 
+      #{totalCountOriginal,jdbcType=INTEGER}, #{realMoneyOriginal,jdbcType=DECIMAL}, 
+      #{totalMoneyOriginal,jdbcType=DECIMAL}, #{totalAmountOriginal,jdbcType=INTEGER}, 
+      #{oIdTake,jdbcType=CHAR}, #{oIdOpen,jdbcType=CHAR}, #{lastModDate,jdbcType=TIMESTAMP}, 
+      #{lastTransDate,jdbcType=TIMESTAMP}, #{buyReason,jdbcType=VARCHAR}, #{shFlag,jdbcType=CHAR}, 
+      #{thStyleId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.YwJh">
+    insert into yw_jh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jhId != null">
+        jh_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="dId != null">
+        d_id,
+      </if>
+      <if test="arrearDate != null">
+        arrear_date,
+      </if>
+      <if test="inputDate != null">
+        input_date,
+      </if>
+      <if test="oIdInput != null">
+        o_id_input,
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator,
+      </if>
+      <if test="totalAmount != null">
+        total_amount,
+      </if>
+      <if test="totalCount != null">
+        total_count,
+      </if>
+      <if test="totalMoney != null">
+        total_money,
+      </if>
+      <if test="realMoney != null">
+        real_money,
+      </if>
+      <if test="buyStyleId != null">
+        buy_style_id,
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class,
+      </if>
+      <if test="iClassId != null">
+        i_class_id,
+      </if>
+      <if test="fId != null">
+        f_id,
+      </if>
+      <if test="taxRate != null">
+        tax_rate,
+      </if>
+      <if test="saleStyleId != null">
+        sale_style_id,
+      </if>
+      <if test="pici != null">
+        pici,
+      </if>
+      <if test="isVerify != null">
+        is_verify,
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify,
+      </if>
+      <if test="verifyDate != null">
+        verify_date,
+      </if>
+      <if test="isDestroy != null">
+        is_destroy,
+      </if>
+      <if test="destroyDate != null">
+        destroy_date,
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy,
+      </if>
+      <if test="otherMoney != null">
+        other_money,
+      </if>
+      <if test="stockArrear != null">
+        stock_arrear,
+      </if>
+      <if test="oIdStock != null">
+        o_id_stock,
+      </if>
+      <if test="stockDate != null">
+        stock_date,
+      </if>
+      <if test="moneyArrear != null">
+        money_arrear,
+      </if>
+      <if test="moneyDate != null">
+        money_date,
+      </if>
+      <if test="oIdMoney != null">
+        o_id_money,
+      </if>
+      <if test="fNumber != null">
+        f_number,
+      </if>
+      <if test="prn != null">
+        prn,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="pzId != null">
+        pz_id,
+      </if>
+      <if test="pzFlag != null">
+        pz_flag,
+      </if>
+      <if test="packFlag != null">
+        pack_flag,
+      </if>
+      <if test="notrigger != null">
+        notrigger,
+      </if>
+      <if test="shelfFlag != null">
+        shelf_flag,
+      </if>
+      <if test="consignmentStyleId != null">
+        consignment_style_id,
+      </if>
+      <if test="sourceCode != null">
+        source_code,
+      </if>
+      <if test="sourceSendDate != null">
+        source_send_date,
+      </if>
+      <if test="aimStation != null">
+        aim_station,
+      </if>
+      <if test="trainPack != null">
+        train_pack,
+      </if>
+      <if test="transportNumber != null">
+        transport_number,
+      </if>
+      <if test="takegoodsMoney != null">
+        takegoods_money,
+      </if>
+      <if test="takegoodsDate != null">
+        takegoods_date,
+      </if>
+      <if test="totalCountOriginal != null">
+        total_count_original,
+      </if>
+      <if test="realMoneyOriginal != null">
+        real_money_original,
+      </if>
+      <if test="totalMoneyOriginal != null">
+        total_money_original,
+      </if>
+      <if test="totalAmountOriginal != null">
+        total_amount_original,
+      </if>
+      <if test="oIdTake != null">
+        o_id_take,
+      </if>
+      <if test="oIdOpen != null">
+        o_id_open,
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date,
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date,
+      </if>
+      <if test="buyReason != null">
+        buy_reason,
+      </if>
+      <if test="shFlag != null">
+        sh_flag,
+      </if>
+      <if test="thStyleId != null">
+        th_style_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jhId != null">
+        #{jhId,jdbcType=CHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        #{dId,jdbcType=CHAR},
+      </if>
+      <if test="arrearDate != null">
+        #{arrearDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdInput != null">
+        #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="oIdOperator != null">
+        #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="realMoney != null">
+        #{realMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buyStyleId != null">
+        #{buyStyleId,jdbcType=CHAR},
+      </if>
+      <if test="receiptsClass != null">
+        #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="iClassId != null">
+        #{iClassId,jdbcType=CHAR},
+      </if>
+      <if test="fId != null">
+        #{fId,jdbcType=CHAR},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="saleStyleId != null">
+        #{saleStyleId,jdbcType=CHAR},
+      </if>
+      <if test="pici != null">
+        #{pici,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null">
+        #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="otherMoney != null">
+        #{otherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stockArrear != null">
+        #{stockArrear,jdbcType=CHAR},
+      </if>
+      <if test="oIdStock != null">
+        #{oIdStock,jdbcType=CHAR},
+      </if>
+      <if test="stockDate != null">
+        #{stockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyArrear != null">
+        #{moneyArrear,jdbcType=CHAR},
+      </if>
+      <if test="moneyDate != null">
+        #{moneyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdMoney != null">
+        #{oIdMoney,jdbcType=CHAR},
+      </if>
+      <if test="fNumber != null">
+        #{fNumber,jdbcType=INTEGER},
+      </if>
+      <if test="prn != null">
+        #{prn,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="pzId != null">
+        #{pzId,jdbcType=VARCHAR},
+      </if>
+      <if test="pzFlag != null">
+        #{pzFlag,jdbcType=CHAR},
+      </if>
+      <if test="packFlag != null">
+        #{packFlag,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="shelfFlag != null">
+        #{shelfFlag,jdbcType=CHAR},
+      </if>
+      <if test="consignmentStyleId != null">
+        #{consignmentStyleId,jdbcType=CHAR},
+      </if>
+      <if test="sourceCode != null">
+        #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSendDate != null">
+        #{sourceSendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aimStation != null">
+        #{aimStation,jdbcType=CHAR},
+      </if>
+      <if test="trainPack != null">
+        #{trainPack,jdbcType=INTEGER},
+      </if>
+      <if test="transportNumber != null">
+        #{transportNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="takegoodsMoney != null">
+        #{takegoodsMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="takegoodsDate != null">
+        #{takegoodsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalCountOriginal != null">
+        #{totalCountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="realMoneyOriginal != null">
+        #{realMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoneyOriginal != null">
+        #{totalMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmountOriginal != null">
+        #{totalAmountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="oIdTake != null">
+        #{oIdTake,jdbcType=CHAR},
+      </if>
+      <if test="oIdOpen != null">
+        #{oIdOpen,jdbcType=CHAR},
+      </if>
+      <if test="lastModDate != null">
+        #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyReason != null">
+        #{buyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="shFlag != null">
+        #{shFlag,jdbcType=CHAR},
+      </if>
+      <if test="thStyleId != null">
+        #{thStyleId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.YwJh">
+    update yw_jh
+    <set>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        d_id = #{dId,jdbcType=CHAR},
+      </if>
+      <if test="arrearDate != null">
+        arrear_date = #{arrearDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputDate != null">
+        input_date = #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdInput != null">
+        o_id_input = #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="totalAmount != null">
+        total_amount = #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalCount != null">
+        total_count = #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        total_money = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="realMoney != null">
+        real_money = #{realMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buyStyleId != null">
+        buy_style_id = #{buyStyleId,jdbcType=CHAR},
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class = #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="iClassId != null">
+        i_class_id = #{iClassId,jdbcType=CHAR},
+      </if>
+      <if test="fId != null">
+        f_id = #{fId,jdbcType=CHAR},
+      </if>
+      <if test="taxRate != null">
+        tax_rate = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="saleStyleId != null">
+        sale_style_id = #{saleStyleId,jdbcType=CHAR},
+      </if>
+      <if test="pici != null">
+        pici = #{pici,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null">
+        is_verify = #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        is_destroy = #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="otherMoney != null">
+        other_money = #{otherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stockArrear != null">
+        stock_arrear = #{stockArrear,jdbcType=CHAR},
+      </if>
+      <if test="oIdStock != null">
+        o_id_stock = #{oIdStock,jdbcType=CHAR},
+      </if>
+      <if test="stockDate != null">
+        stock_date = #{stockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyArrear != null">
+        money_arrear = #{moneyArrear,jdbcType=CHAR},
+      </if>
+      <if test="moneyDate != null">
+        money_date = #{moneyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdMoney != null">
+        o_id_money = #{oIdMoney,jdbcType=CHAR},
+      </if>
+      <if test="fNumber != null">
+        f_number = #{fNumber,jdbcType=INTEGER},
+      </if>
+      <if test="prn != null">
+        prn = #{prn,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="pzId != null">
+        pz_id = #{pzId,jdbcType=VARCHAR},
+      </if>
+      <if test="pzFlag != null">
+        pz_flag = #{pzFlag,jdbcType=CHAR},
+      </if>
+      <if test="packFlag != null">
+        pack_flag = #{packFlag,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        notrigger = #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="shelfFlag != null">
+        shelf_flag = #{shelfFlag,jdbcType=CHAR},
+      </if>
+      <if test="consignmentStyleId != null">
+        consignment_style_id = #{consignmentStyleId,jdbcType=CHAR},
+      </if>
+      <if test="sourceCode != null">
+        source_code = #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSendDate != null">
+        source_send_date = #{sourceSendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aimStation != null">
+        aim_station = #{aimStation,jdbcType=CHAR},
+      </if>
+      <if test="trainPack != null">
+        train_pack = #{trainPack,jdbcType=INTEGER},
+      </if>
+      <if test="transportNumber != null">
+        transport_number = #{transportNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="takegoodsMoney != null">
+        takegoods_money = #{takegoodsMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="takegoodsDate != null">
+        takegoods_date = #{takegoodsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalCountOriginal != null">
+        total_count_original = #{totalCountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="realMoneyOriginal != null">
+        real_money_original = #{realMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoneyOriginal != null">
+        total_money_original = #{totalMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmountOriginal != null">
+        total_amount_original = #{totalAmountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="oIdTake != null">
+        o_id_take = #{oIdTake,jdbcType=CHAR},
+      </if>
+      <if test="oIdOpen != null">
+        o_id_open = #{oIdOpen,jdbcType=CHAR},
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyReason != null">
+        buy_reason = #{buyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="shFlag != null">
+        sh_flag = #{shFlag,jdbcType=CHAR},
+      </if>
+      <if test="thStyleId != null">
+        th_style_id = #{thStyleId,jdbcType=CHAR},
+      </if>
+    </set>
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.YwJh">
+    update yw_jh
+    set station_id = #{stationId,jdbcType=CHAR},
+      d_id = #{dId,jdbcType=CHAR},
+      arrear_date = #{arrearDate,jdbcType=TIMESTAMP},
+      input_date = #{inputDate,jdbcType=TIMESTAMP},
+      o_id_input = #{oIdInput,jdbcType=CHAR},
+      o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      total_amount = #{totalAmount,jdbcType=INTEGER},
+      total_count = #{totalCount,jdbcType=INTEGER},
+      total_money = #{totalMoney,jdbcType=DECIMAL},
+      real_money = #{realMoney,jdbcType=DECIMAL},
+      buy_style_id = #{buyStyleId,jdbcType=CHAR},
+      receipts_class = #{receiptsClass,jdbcType=CHAR},
+      i_class_id = #{iClassId,jdbcType=CHAR},
+      f_id = #{fId,jdbcType=CHAR},
+      tax_rate = #{taxRate,jdbcType=DECIMAL},
+      sale_style_id = #{saleStyleId,jdbcType=CHAR},
+      pici = #{pici,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=CHAR},
+      o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      is_destroy = #{isDestroy,jdbcType=CHAR},
+      destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      other_money = #{otherMoney,jdbcType=DECIMAL},
+      stock_arrear = #{stockArrear,jdbcType=CHAR},
+      o_id_stock = #{oIdStock,jdbcType=CHAR},
+      stock_date = #{stockDate,jdbcType=TIMESTAMP},
+      money_arrear = #{moneyArrear,jdbcType=CHAR},
+      money_date = #{moneyDate,jdbcType=TIMESTAMP},
+      o_id_money = #{oIdMoney,jdbcType=CHAR},
+      f_number = #{fNumber,jdbcType=INTEGER},
+      prn = #{prn,jdbcType=CHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      pz_id = #{pzId,jdbcType=VARCHAR},
+      pz_flag = #{pzFlag,jdbcType=CHAR},
+      pack_flag = #{packFlag,jdbcType=CHAR},
+      notrigger = #{notrigger,jdbcType=CHAR},
+      shelf_flag = #{shelfFlag,jdbcType=CHAR},
+      consignment_style_id = #{consignmentStyleId,jdbcType=CHAR},
+      source_code = #{sourceCode,jdbcType=VARCHAR},
+      source_send_date = #{sourceSendDate,jdbcType=TIMESTAMP},
+      aim_station = #{aimStation,jdbcType=CHAR},
+      train_pack = #{trainPack,jdbcType=INTEGER},
+      transport_number = #{transportNumber,jdbcType=VARCHAR},
+      takegoods_money = #{takegoodsMoney,jdbcType=DECIMAL},
+      takegoods_date = #{takegoodsDate,jdbcType=TIMESTAMP},
+      total_count_original = #{totalCountOriginal,jdbcType=INTEGER},
+      real_money_original = #{realMoneyOriginal,jdbcType=DECIMAL},
+      total_money_original = #{totalMoneyOriginal,jdbcType=DECIMAL},
+      total_amount_original = #{totalAmountOriginal,jdbcType=INTEGER},
+      o_id_take = #{oIdTake,jdbcType=CHAR},
+      o_id_open = #{oIdOpen,jdbcType=CHAR},
+      last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      buy_reason = #{buyReason,jdbcType=VARCHAR},
+      sh_flag = #{shFlag,jdbcType=CHAR},
+      th_style_id = #{thStyleId,jdbcType=CHAR}
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.pojo.YwJh">
+    <id column="jh_id" jdbcType="CHAR" property="jhId" />
+    <result column="station_id" jdbcType="CHAR" property="stationId" />
+    <result column="d_id" jdbcType="CHAR" property="dId" />
+    <result column="arrear_date" jdbcType="TIMESTAMP" property="arrearDate" />
+    <result column="input_date" jdbcType="TIMESTAMP" property="inputDate" />
+    <result column="o_id_input" jdbcType="CHAR" property="oIdInput" />
+    <result column="o_id_operator" jdbcType="CHAR" property="oIdOperator" />
+    <result column="total_amount" jdbcType="INTEGER" property="totalAmount" />
+    <result column="total_count" jdbcType="INTEGER" property="totalCount" />
+    <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
+    <result column="real_money" jdbcType="DECIMAL" property="realMoney" />
+    <result column="buy_style_id" jdbcType="CHAR" property="buyStyleId" />
+    <result column="receipts_class" jdbcType="CHAR" property="receiptsClass" />
+    <result column="i_class_id" jdbcType="CHAR" property="iClassId" />
+    <result column="f_id" jdbcType="CHAR" property="fId" />
+    <result column="tax_rate" jdbcType="DECIMAL" property="taxRate" />
+    <result column="sale_style_id" jdbcType="CHAR" property="saleStyleId" />
+    <result column="pici" jdbcType="VARCHAR" property="pici" />
+    <result column="is_verify" jdbcType="CHAR" property="isVerify" />
+    <result column="o_id_verify" jdbcType="CHAR" property="oIdVerify" />
+    <result column="verify_date" jdbcType="TIMESTAMP" property="verifyDate" />
+    <result column="is_destroy" jdbcType="CHAR" property="isDestroy" />
+    <result column="destroy_date" jdbcType="TIMESTAMP" property="destroyDate" />
+    <result column="o_id_destroy" jdbcType="CHAR" property="oIdDestroy" />
+    <result column="other_money" jdbcType="DECIMAL" property="otherMoney" />
+    <result column="stock_arrear" jdbcType="CHAR" property="stockArrear" />
+    <result column="o_id_stock" jdbcType="CHAR" property="oIdStock" />
+    <result column="stock_date" jdbcType="TIMESTAMP" property="stockDate" />
+    <result column="money_arrear" jdbcType="CHAR" property="moneyArrear" />
+    <result column="money_date" jdbcType="TIMESTAMP" property="moneyDate" />
+    <result column="o_id_money" jdbcType="CHAR" property="oIdMoney" />
+    <result column="f_number" jdbcType="INTEGER" property="fNumber" />
+    <result column="prn" jdbcType="CHAR" property="prn" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="pz_id" jdbcType="VARCHAR" property="pzId" />
+    <result column="pz_flag" jdbcType="CHAR" property="pzFlag" />
+    <result column="pack_flag" jdbcType="CHAR" property="packFlag" />
+    <result column="notrigger" jdbcType="CHAR" property="notrigger" />
+    <result column="shelf_flag" jdbcType="CHAR" property="shelfFlag" />
+    <result column="consignment_style_id" jdbcType="CHAR" property="consignmentStyleId" />
+    <result column="source_code" jdbcType="VARCHAR" property="sourceCode" />
+    <result column="source_send_date" jdbcType="TIMESTAMP" property="sourceSendDate" />
+    <result column="aim_station" jdbcType="CHAR" property="aimStation" />
+    <result column="train_pack" jdbcType="INTEGER" property="trainPack" />
+    <result column="transport_number" jdbcType="VARCHAR" property="transportNumber" />
+    <result column="takegoods_money" jdbcType="DECIMAL" property="takegoodsMoney" />
+    <result column="takegoods_date" jdbcType="TIMESTAMP" property="takegoodsDate" />
+    <result column="total_count_original" jdbcType="INTEGER" property="totalCountOriginal" />
+    <result column="real_money_original" jdbcType="DECIMAL" property="realMoneyOriginal" />
+    <result column="total_money_original" jdbcType="DECIMAL" property="totalMoneyOriginal" />
+    <result column="total_amount_original" jdbcType="INTEGER" property="totalAmountOriginal" />
+    <result column="o_id_take" jdbcType="CHAR" property="oIdTake" />
+    <result column="o_id_open" jdbcType="CHAR" property="oIdOpen" />
+    <result column="last_mod_date" jdbcType="TIMESTAMP" property="lastModDate" />
+    <result column="last_trans_date" jdbcType="TIMESTAMP" property="lastTransDate" />
+    <result column="buy_reason" jdbcType="VARCHAR" property="buyReason" />
+    <result column="sh_flag" jdbcType="CHAR" property="shFlag" />
+    <result column="th_style_id" jdbcType="CHAR" property="thStyleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    jh_id, station_id, d_id, arrear_date, input_date, o_id_input, o_id_operator, total_amount, 
+    total_count, total_money, real_money, buy_style_id, receipts_class, i_class_id, f_id, 
+    tax_rate, sale_style_id, pici, is_verify, o_id_verify, verify_date, is_destroy, destroy_date, 
+    o_id_destroy, other_money, stock_arrear, o_id_stock, stock_date, money_arrear, money_date, 
+    o_id_money, f_number, prn, memo, pz_id, pz_flag, pack_flag, notrigger, shelf_flag, 
+    consignment_style_id, source_code, source_send_date, aim_station, train_pack, transport_number, 
+    takegoods_money, takegoods_date, total_count_original, real_money_original, total_money_original, 
+    total_amount_original, o_id_take, o_id_open, last_mod_date, last_trans_date, buy_reason, 
+    sh_flag, th_style_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yw_jh
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from yw_jh
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.YwJh">
+    insert into yw_jh (jh_id, station_id, d_id, 
+      arrear_date, input_date, o_id_input, 
+      o_id_operator, total_amount, total_count, 
+      total_money, real_money, buy_style_id, 
+      receipts_class, i_class_id, f_id, 
+      tax_rate, sale_style_id, pici, 
+      is_verify, o_id_verify, verify_date, 
+      is_destroy, destroy_date, o_id_destroy, 
+      other_money, stock_arrear, o_id_stock, 
+      stock_date, money_arrear, money_date, 
+      o_id_money, f_number, prn, memo, 
+      pz_id, pz_flag, pack_flag, notrigger, 
+      shelf_flag, consignment_style_id, source_code, 
+      source_send_date, aim_station, train_pack, 
+      transport_number, takegoods_money, takegoods_date, 
+      total_count_original, real_money_original, 
+      total_money_original, total_amount_original, 
+      o_id_take, o_id_open, last_mod_date, 
+      last_trans_date, buy_reason, sh_flag, 
+      th_style_id)
+    values (#{jhId,jdbcType=CHAR}, #{stationId,jdbcType=CHAR}, #{dId,jdbcType=CHAR}, 
+      #{arrearDate,jdbcType=TIMESTAMP}, #{inputDate,jdbcType=TIMESTAMP}, #{oIdInput,jdbcType=CHAR}, 
+      #{oIdOperator,jdbcType=CHAR}, #{totalAmount,jdbcType=INTEGER}, #{totalCount,jdbcType=INTEGER}, 
+      #{totalMoney,jdbcType=DECIMAL}, #{realMoney,jdbcType=DECIMAL}, #{buyStyleId,jdbcType=CHAR}, 
+      #{receiptsClass,jdbcType=CHAR}, #{iClassId,jdbcType=CHAR}, #{fId,jdbcType=CHAR}, 
+      #{taxRate,jdbcType=DECIMAL}, #{saleStyleId,jdbcType=CHAR}, #{pici,jdbcType=VARCHAR}, 
+      #{isVerify,jdbcType=CHAR}, #{oIdVerify,jdbcType=CHAR}, #{verifyDate,jdbcType=TIMESTAMP}, 
+      #{isDestroy,jdbcType=CHAR}, #{destroyDate,jdbcType=TIMESTAMP}, #{oIdDestroy,jdbcType=CHAR}, 
+      #{otherMoney,jdbcType=DECIMAL}, #{stockArrear,jdbcType=CHAR}, #{oIdStock,jdbcType=CHAR}, 
+      #{stockDate,jdbcType=TIMESTAMP}, #{moneyArrear,jdbcType=CHAR}, #{moneyDate,jdbcType=TIMESTAMP}, 
+      #{oIdMoney,jdbcType=CHAR}, #{fNumber,jdbcType=INTEGER}, #{prn,jdbcType=CHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{pzId,jdbcType=VARCHAR}, #{pzFlag,jdbcType=CHAR}, #{packFlag,jdbcType=CHAR}, #{notrigger,jdbcType=CHAR}, 
+      #{shelfFlag,jdbcType=CHAR}, #{consignmentStyleId,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, 
+      #{sourceSendDate,jdbcType=TIMESTAMP}, #{aimStation,jdbcType=CHAR}, #{trainPack,jdbcType=INTEGER}, 
+      #{transportNumber,jdbcType=VARCHAR}, #{takegoodsMoney,jdbcType=DECIMAL}, #{takegoodsDate,jdbcType=TIMESTAMP}, 
+      #{totalCountOriginal,jdbcType=INTEGER}, #{realMoneyOriginal,jdbcType=DECIMAL}, 
+      #{totalMoneyOriginal,jdbcType=DECIMAL}, #{totalAmountOriginal,jdbcType=INTEGER}, 
+      #{oIdTake,jdbcType=CHAR}, #{oIdOpen,jdbcType=CHAR}, #{lastModDate,jdbcType=TIMESTAMP}, 
+      #{lastTransDate,jdbcType=TIMESTAMP}, #{buyReason,jdbcType=VARCHAR}, #{shFlag,jdbcType=CHAR}, 
+      #{thStyleId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.YwJh">
+    insert into yw_jh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jhId != null">
+        jh_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="dId != null">
+        d_id,
+      </if>
+      <if test="arrearDate != null">
+        arrear_date,
+      </if>
+      <if test="inputDate != null">
+        input_date,
+      </if>
+      <if test="oIdInput != null">
+        o_id_input,
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator,
+      </if>
+      <if test="totalAmount != null">
+        total_amount,
+      </if>
+      <if test="totalCount != null">
+        total_count,
+      </if>
+      <if test="totalMoney != null">
+        total_money,
+      </if>
+      <if test="realMoney != null">
+        real_money,
+      </if>
+      <if test="buyStyleId != null">
+        buy_style_id,
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class,
+      </if>
+      <if test="iClassId != null">
+        i_class_id,
+      </if>
+      <if test="fId != null">
+        f_id,
+      </if>
+      <if test="taxRate != null">
+        tax_rate,
+      </if>
+      <if test="saleStyleId != null">
+        sale_style_id,
+      </if>
+      <if test="pici != null">
+        pici,
+      </if>
+      <if test="isVerify != null">
+        is_verify,
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify,
+      </if>
+      <if test="verifyDate != null">
+        verify_date,
+      </if>
+      <if test="isDestroy != null">
+        is_destroy,
+      </if>
+      <if test="destroyDate != null">
+        destroy_date,
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy,
+      </if>
+      <if test="otherMoney != null">
+        other_money,
+      </if>
+      <if test="stockArrear != null">
+        stock_arrear,
+      </if>
+      <if test="oIdStock != null">
+        o_id_stock,
+      </if>
+      <if test="stockDate != null">
+        stock_date,
+      </if>
+      <if test="moneyArrear != null">
+        money_arrear,
+      </if>
+      <if test="moneyDate != null">
+        money_date,
+      </if>
+      <if test="oIdMoney != null">
+        o_id_money,
+      </if>
+      <if test="fNumber != null">
+        f_number,
+      </if>
+      <if test="prn != null">
+        prn,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="pzId != null">
+        pz_id,
+      </if>
+      <if test="pzFlag != null">
+        pz_flag,
+      </if>
+      <if test="packFlag != null">
+        pack_flag,
+      </if>
+      <if test="notrigger != null">
+        notrigger,
+      </if>
+      <if test="shelfFlag != null">
+        shelf_flag,
+      </if>
+      <if test="consignmentStyleId != null">
+        consignment_style_id,
+      </if>
+      <if test="sourceCode != null">
+        source_code,
+      </if>
+      <if test="sourceSendDate != null">
+        source_send_date,
+      </if>
+      <if test="aimStation != null">
+        aim_station,
+      </if>
+      <if test="trainPack != null">
+        train_pack,
+      </if>
+      <if test="transportNumber != null">
+        transport_number,
+      </if>
+      <if test="takegoodsMoney != null">
+        takegoods_money,
+      </if>
+      <if test="takegoodsDate != null">
+        takegoods_date,
+      </if>
+      <if test="totalCountOriginal != null">
+        total_count_original,
+      </if>
+      <if test="realMoneyOriginal != null">
+        real_money_original,
+      </if>
+      <if test="totalMoneyOriginal != null">
+        total_money_original,
+      </if>
+      <if test="totalAmountOriginal != null">
+        total_amount_original,
+      </if>
+      <if test="oIdTake != null">
+        o_id_take,
+      </if>
+      <if test="oIdOpen != null">
+        o_id_open,
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date,
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date,
+      </if>
+      <if test="buyReason != null">
+        buy_reason,
+      </if>
+      <if test="shFlag != null">
+        sh_flag,
+      </if>
+      <if test="thStyleId != null">
+        th_style_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jhId != null">
+        #{jhId,jdbcType=CHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        #{dId,jdbcType=CHAR},
+      </if>
+      <if test="arrearDate != null">
+        #{arrearDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdInput != null">
+        #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="oIdOperator != null">
+        #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="realMoney != null">
+        #{realMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buyStyleId != null">
+        #{buyStyleId,jdbcType=CHAR},
+      </if>
+      <if test="receiptsClass != null">
+        #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="iClassId != null">
+        #{iClassId,jdbcType=CHAR},
+      </if>
+      <if test="fId != null">
+        #{fId,jdbcType=CHAR},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="saleStyleId != null">
+        #{saleStyleId,jdbcType=CHAR},
+      </if>
+      <if test="pici != null">
+        #{pici,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null">
+        #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="otherMoney != null">
+        #{otherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stockArrear != null">
+        #{stockArrear,jdbcType=CHAR},
+      </if>
+      <if test="oIdStock != null">
+        #{oIdStock,jdbcType=CHAR},
+      </if>
+      <if test="stockDate != null">
+        #{stockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyArrear != null">
+        #{moneyArrear,jdbcType=CHAR},
+      </if>
+      <if test="moneyDate != null">
+        #{moneyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdMoney != null">
+        #{oIdMoney,jdbcType=CHAR},
+      </if>
+      <if test="fNumber != null">
+        #{fNumber,jdbcType=INTEGER},
+      </if>
+      <if test="prn != null">
+        #{prn,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="pzId != null">
+        #{pzId,jdbcType=VARCHAR},
+      </if>
+      <if test="pzFlag != null">
+        #{pzFlag,jdbcType=CHAR},
+      </if>
+      <if test="packFlag != null">
+        #{packFlag,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="shelfFlag != null">
+        #{shelfFlag,jdbcType=CHAR},
+      </if>
+      <if test="consignmentStyleId != null">
+        #{consignmentStyleId,jdbcType=CHAR},
+      </if>
+      <if test="sourceCode != null">
+        #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSendDate != null">
+        #{sourceSendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aimStation != null">
+        #{aimStation,jdbcType=CHAR},
+      </if>
+      <if test="trainPack != null">
+        #{trainPack,jdbcType=INTEGER},
+      </if>
+      <if test="transportNumber != null">
+        #{transportNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="takegoodsMoney != null">
+        #{takegoodsMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="takegoodsDate != null">
+        #{takegoodsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalCountOriginal != null">
+        #{totalCountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="realMoneyOriginal != null">
+        #{realMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoneyOriginal != null">
+        #{totalMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmountOriginal != null">
+        #{totalAmountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="oIdTake != null">
+        #{oIdTake,jdbcType=CHAR},
+      </if>
+      <if test="oIdOpen != null">
+        #{oIdOpen,jdbcType=CHAR},
+      </if>
+      <if test="lastModDate != null">
+        #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyReason != null">
+        #{buyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="shFlag != null">
+        #{shFlag,jdbcType=CHAR},
+      </if>
+      <if test="thStyleId != null">
+        #{thStyleId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.YwJh">
+    update yw_jh
+    <set>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="dId != null">
+        d_id = #{dId,jdbcType=CHAR},
+      </if>
+      <if test="arrearDate != null">
+        arrear_date = #{arrearDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputDate != null">
+        input_date = #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdInput != null">
+        o_id_input = #{oIdInput,jdbcType=CHAR},
+      </if>
+      <if test="oIdOperator != null">
+        o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      </if>
+      <if test="totalAmount != null">
+        total_amount = #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="totalCount != null">
+        total_count = #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null">
+        total_money = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="realMoney != null">
+        real_money = #{realMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="buyStyleId != null">
+        buy_style_id = #{buyStyleId,jdbcType=CHAR},
+      </if>
+      <if test="receiptsClass != null">
+        receipts_class = #{receiptsClass,jdbcType=CHAR},
+      </if>
+      <if test="iClassId != null">
+        i_class_id = #{iClassId,jdbcType=CHAR},
+      </if>
+      <if test="fId != null">
+        f_id = #{fId,jdbcType=CHAR},
+      </if>
+      <if test="taxRate != null">
+        tax_rate = #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="saleStyleId != null">
+        sale_style_id = #{saleStyleId,jdbcType=CHAR},
+      </if>
+      <if test="pici != null">
+        pici = #{pici,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null">
+        is_verify = #{isVerify,jdbcType=CHAR},
+      </if>
+      <if test="oIdVerify != null">
+        o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      </if>
+      <if test="verifyDate != null">
+        verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDestroy != null">
+        is_destroy = #{isDestroy,jdbcType=CHAR},
+      </if>
+      <if test="destroyDate != null">
+        destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdDestroy != null">
+        o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      </if>
+      <if test="otherMoney != null">
+        other_money = #{otherMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stockArrear != null">
+        stock_arrear = #{stockArrear,jdbcType=CHAR},
+      </if>
+      <if test="oIdStock != null">
+        o_id_stock = #{oIdStock,jdbcType=CHAR},
+      </if>
+      <if test="stockDate != null">
+        stock_date = #{stockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyArrear != null">
+        money_arrear = #{moneyArrear,jdbcType=CHAR},
+      </if>
+      <if test="moneyDate != null">
+        money_date = #{moneyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oIdMoney != null">
+        o_id_money = #{oIdMoney,jdbcType=CHAR},
+      </if>
+      <if test="fNumber != null">
+        f_number = #{fNumber,jdbcType=INTEGER},
+      </if>
+      <if test="prn != null">
+        prn = #{prn,jdbcType=CHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="pzId != null">
+        pz_id = #{pzId,jdbcType=VARCHAR},
+      </if>
+      <if test="pzFlag != null">
+        pz_flag = #{pzFlag,jdbcType=CHAR},
+      </if>
+      <if test="packFlag != null">
+        pack_flag = #{packFlag,jdbcType=CHAR},
+      </if>
+      <if test="notrigger != null">
+        notrigger = #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="shelfFlag != null">
+        shelf_flag = #{shelfFlag,jdbcType=CHAR},
+      </if>
+      <if test="consignmentStyleId != null">
+        consignment_style_id = #{consignmentStyleId,jdbcType=CHAR},
+      </if>
+      <if test="sourceCode != null">
+        source_code = #{sourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSendDate != null">
+        source_send_date = #{sourceSendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aimStation != null">
+        aim_station = #{aimStation,jdbcType=CHAR},
+      </if>
+      <if test="trainPack != null">
+        train_pack = #{trainPack,jdbcType=INTEGER},
+      </if>
+      <if test="transportNumber != null">
+        transport_number = #{transportNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="takegoodsMoney != null">
+        takegoods_money = #{takegoodsMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="takegoodsDate != null">
+        takegoods_date = #{takegoodsDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalCountOriginal != null">
+        total_count_original = #{totalCountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="realMoneyOriginal != null">
+        real_money_original = #{realMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoneyOriginal != null">
+        total_money_original = #{totalMoneyOriginal,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmountOriginal != null">
+        total_amount_original = #{totalAmountOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="oIdTake != null">
+        o_id_take = #{oIdTake,jdbcType=CHAR},
+      </if>
+      <if test="oIdOpen != null">
+        o_id_open = #{oIdOpen,jdbcType=CHAR},
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyReason != null">
+        buy_reason = #{buyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="shFlag != null">
+        sh_flag = #{shFlag,jdbcType=CHAR},
+      </if>
+      <if test="thStyleId != null">
+        th_style_id = #{thStyleId,jdbcType=CHAR},
+      </if>
+    </set>
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.YwJh">
+    update yw_jh
+    set station_id = #{stationId,jdbcType=CHAR},
+      d_id = #{dId,jdbcType=CHAR},
+      arrear_date = #{arrearDate,jdbcType=TIMESTAMP},
+      input_date = #{inputDate,jdbcType=TIMESTAMP},
+      o_id_input = #{oIdInput,jdbcType=CHAR},
+      o_id_operator = #{oIdOperator,jdbcType=CHAR},
+      total_amount = #{totalAmount,jdbcType=INTEGER},
+      total_count = #{totalCount,jdbcType=INTEGER},
+      total_money = #{totalMoney,jdbcType=DECIMAL},
+      real_money = #{realMoney,jdbcType=DECIMAL},
+      buy_style_id = #{buyStyleId,jdbcType=CHAR},
+      receipts_class = #{receiptsClass,jdbcType=CHAR},
+      i_class_id = #{iClassId,jdbcType=CHAR},
+      f_id = #{fId,jdbcType=CHAR},
+      tax_rate = #{taxRate,jdbcType=DECIMAL},
+      sale_style_id = #{saleStyleId,jdbcType=CHAR},
+      pici = #{pici,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=CHAR},
+      o_id_verify = #{oIdVerify,jdbcType=CHAR},
+      verify_date = #{verifyDate,jdbcType=TIMESTAMP},
+      is_destroy = #{isDestroy,jdbcType=CHAR},
+      destroy_date = #{destroyDate,jdbcType=TIMESTAMP},
+      o_id_destroy = #{oIdDestroy,jdbcType=CHAR},
+      other_money = #{otherMoney,jdbcType=DECIMAL},
+      stock_arrear = #{stockArrear,jdbcType=CHAR},
+      o_id_stock = #{oIdStock,jdbcType=CHAR},
+      stock_date = #{stockDate,jdbcType=TIMESTAMP},
+      money_arrear = #{moneyArrear,jdbcType=CHAR},
+      money_date = #{moneyDate,jdbcType=TIMESTAMP},
+      o_id_money = #{oIdMoney,jdbcType=CHAR},
+      f_number = #{fNumber,jdbcType=INTEGER},
+      prn = #{prn,jdbcType=CHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      pz_id = #{pzId,jdbcType=VARCHAR},
+      pz_flag = #{pzFlag,jdbcType=CHAR},
+      pack_flag = #{packFlag,jdbcType=CHAR},
+      notrigger = #{notrigger,jdbcType=CHAR},
+      shelf_flag = #{shelfFlag,jdbcType=CHAR},
+      consignment_style_id = #{consignmentStyleId,jdbcType=CHAR},
+      source_code = #{sourceCode,jdbcType=VARCHAR},
+      source_send_date = #{sourceSendDate,jdbcType=TIMESTAMP},
+      aim_station = #{aimStation,jdbcType=CHAR},
+      train_pack = #{trainPack,jdbcType=INTEGER},
+      transport_number = #{transportNumber,jdbcType=VARCHAR},
+      takegoods_money = #{takegoodsMoney,jdbcType=DECIMAL},
+      takegoods_date = #{takegoodsDate,jdbcType=TIMESTAMP},
+      total_count_original = #{totalCountOriginal,jdbcType=INTEGER},
+      real_money_original = #{realMoneyOriginal,jdbcType=DECIMAL},
+      total_money_original = #{totalMoneyOriginal,jdbcType=DECIMAL},
+      total_amount_original = #{totalAmountOriginal,jdbcType=INTEGER},
+      o_id_take = #{oIdTake,jdbcType=CHAR},
+      o_id_open = #{oIdOpen,jdbcType=CHAR},
+      last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      buy_reason = #{buyReason,jdbcType=VARCHAR},
+      sh_flag = #{shFlag,jdbcType=CHAR},
+      th_style_id = #{thStyleId,jdbcType=CHAR}
+    where jh_id = #{jhId,jdbcType=CHAR}
+  </update>
+</mapper>

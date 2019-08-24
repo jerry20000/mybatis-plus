@@ -1,0 +1,7 @@
+cn\sisyphe\demo\core\base\mapper\BaseMapper.class
+cn\sisyphe\demo\core\base\entity\BaseEntity.class
+cn\sisyphe\demo\core\base\entity\AbstractBaseEntity.class
+cn\sisyphe\demo\core\util\SpringContextUtils.class
+cn\sisyphe\demo\core\base\Pagination.class
+cn\sisyphe\demo\core\base\service\BaseService.class
+cn\sisyphe\demo\core\base\service\AbstractBaseService.class

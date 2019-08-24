@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.WaitPackAgeTestMapper">
+  <resultMap id="BaseResultMap" type="com.pojo.WaitPackAgeTest">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="Dis_Automatic_ID" jdbcType="INTEGER" property="disAutomaticId" />
+    <result column="Disp_ID" jdbcType="VARCHAR" property="dispId" />
+    <result column="Dis_BooksID" jdbcType="VARCHAR" property="disBooksid" />
+    <result column="Dis_StaID" jdbcType="VARCHAR" property="disStaid" />
+    <result column="Dis_EmpID" jdbcType="VARCHAR" property="disEmpid" />
+    <result column="Dis_SupNum" jdbcType="VARCHAR" property="disSupnum" />
+    <result column="dis_PacId" jdbcType="CHAR" property="disPacid" />
+    <result column="Dis_Amount" jdbcType="INTEGER" property="disAmount" />
+    <result column="WorkArea_ID" jdbcType="VARCHAR" property="workareaId" />
+    <result column="Dis_PackNum" jdbcType="INTEGER" property="disPacknum" />
+    <result column="Dis_PurchaseID" jdbcType="VARCHAR" property="disPurchaseid" />
+    <result column="dis_ShelfId" jdbcType="VARCHAR" property="disShelfid" />
+    <result column="Device_Id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="Dis_Flag" jdbcType="CHAR" property="disFlag" />
+    <result column="Dis_Isbn" jdbcType="VARCHAR" property="disIsbn" />
+    <result column="Dis_BooksName" jdbcType="VARCHAR" property="disBooksname" />
+    <result column="Dis_Price" jdbcType="DECIMAL" property="disPrice" />
+    <result column="Dis_TotalMoney" jdbcType="DECIMAL" property="disTotalmoney" />
+    <result column="Dis_Discount" jdbcType="DECIMAL" property="disDiscount" />
+    <result column="Dis_RealMoney" jdbcType="DECIMAL" property="disRealmoney" />
+    <result column="Input_Date" jdbcType="TIMESTAMP" property="inputDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, Dis_Automatic_ID, Disp_ID, Dis_BooksID, Dis_StaID, Dis_EmpID, Dis_SupNum, dis_PacId, 
+    Dis_Amount, WorkArea_ID, Dis_PackNum, Dis_PurchaseID, dis_ShelfId, Device_Id, Dis_Flag, 
+    Dis_Isbn, Dis_BooksName, Dis_Price, Dis_TotalMoney, Dis_Discount, Dis_RealMoney, 
+    Input_Date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bu_Th_WaitPackAge_test
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bu_Th_WaitPackAge_test
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.WaitPackAgeTest">
+    insert into bu_Th_WaitPackAge_test (id, Dis_Automatic_ID, Disp_ID, 
+      Dis_BooksID, Dis_StaID, Dis_EmpID, 
+      Dis_SupNum, dis_PacId, Dis_Amount, 
+      WorkArea_ID, Dis_PackNum, Dis_PurchaseID, 
+      dis_ShelfId, Device_Id, Dis_Flag, 
+      Dis_Isbn, Dis_BooksName, Dis_Price, 
+      Dis_TotalMoney, Dis_Discount, Dis_RealMoney, 
+      Input_Date)
+    values (#{id,jdbcType=VARCHAR}, #{disAutomaticId,jdbcType=INTEGER}, #{dispId,jdbcType=VARCHAR}, 
+      #{disBooksid,jdbcType=VARCHAR}, #{disStaid,jdbcType=VARCHAR}, #{disEmpid,jdbcType=VARCHAR}, 
+      #{disSupnum,jdbcType=VARCHAR}, #{disPacid,jdbcType=CHAR}, #{disAmount,jdbcType=INTEGER}, 
+      #{workareaId,jdbcType=VARCHAR}, #{disPacknum,jdbcType=INTEGER}, #{disPurchaseid,jdbcType=VARCHAR}, 
+      #{disShelfid,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, #{disFlag,jdbcType=CHAR}, 
+      #{disIsbn,jdbcType=VARCHAR}, #{disBooksname,jdbcType=VARCHAR}, #{disPrice,jdbcType=DECIMAL}, 
+      #{disTotalmoney,jdbcType=DECIMAL}, #{disDiscount,jdbcType=DECIMAL}, #{disRealmoney,jdbcType=DECIMAL}, 
+      #{inputDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.WaitPackAgeTest">
+    insert into bu_Th_WaitPackAge_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="disAutomaticId != null">
+        Dis_Automatic_ID,
+      </if>
+      <if test="dispId != null">
+        Disp_ID,
+      </if>
+      <if test="disBooksid != null">
+        Dis_BooksID,
+      </if>
+      <if test="disStaid != null">
+        Dis_StaID,
+      </if>
+      <if test="disEmpid != null">
+        Dis_EmpID,
+      </if>
+      <if test="disSupnum != null">
+        Dis_SupNum,
+      </if>
+      <if test="disPacid != null">
+        dis_PacId,
+      </if>
+      <if test="disAmount != null">
+        Dis_Amount,
+      </if>
+      <if test="workareaId != null">
+        WorkArea_ID,
+      </if>
+      <if test="disPacknum != null">
+        Dis_PackNum,
+      </if>
+      <if test="disPurchaseid != null">
+        Dis_PurchaseID,
+      </if>
+      <if test="disShelfid != null">
+        dis_ShelfId,
+      </if>
+      <if test="deviceId != null">
+        Device_Id,
+      </if>
+      <if test="disFlag != null">
+        Dis_Flag,
+      </if>
+      <if test="disIsbn != null">
+        Dis_Isbn,
+      </if>
+      <if test="disBooksname != null">
+        Dis_BooksName,
+      </if>
+      <if test="disPrice != null">
+        Dis_Price,
+      </if>
+      <if test="disTotalmoney != null">
+        Dis_TotalMoney,
+      </if>
+      <if test="disDiscount != null">
+        Dis_Discount,
+      </if>
+      <if test="disRealmoney != null">
+        Dis_RealMoney,
+      </if>
+      <if test="inputDate != null">
+        Input_Date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="disAutomaticId != null">
+        #{disAutomaticId,jdbcType=INTEGER},
+      </if>
+      <if test="dispId != null">
+        #{dispId,jdbcType=VARCHAR},
+      </if>
+      <if test="disBooksid != null">
+        #{disBooksid,jdbcType=VARCHAR},
+      </if>
+      <if test="disStaid != null">
+        #{disStaid,jdbcType=VARCHAR},
+      </if>
+      <if test="disEmpid != null">
+        #{disEmpid,jdbcType=VARCHAR},
+      </if>
+      <if test="disSupnum != null">
+        #{disSupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="disPacid != null">
+        #{disPacid,jdbcType=CHAR},
+      </if>
+      <if test="disAmount != null">
+        #{disAmount,jdbcType=INTEGER},
+      </if>
+      <if test="workareaId != null">
+        #{workareaId,jdbcType=VARCHAR},
+      </if>
+      <if test="disPacknum != null">
+        #{disPacknum,jdbcType=INTEGER},
+      </if>
+      <if test="disPurchaseid != null">
+        #{disPurchaseid,jdbcType=VARCHAR},
+      </if>
+      <if test="disShelfid != null">
+        #{disShelfid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="disFlag != null">
+        #{disFlag,jdbcType=CHAR},
+      </if>
+      <if test="disIsbn != null">
+        #{disIsbn,jdbcType=VARCHAR},
+      </if>
+      <if test="disBooksname != null">
+        #{disBooksname,jdbcType=VARCHAR},
+      </if>
+      <if test="disPrice != null">
+        #{disPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="disTotalmoney != null">
+        #{disTotalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="disDiscount != null">
+        #{disDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="disRealmoney != null">
+        #{disRealmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.WaitPackAgeTest">
+    update bu_Th_WaitPackAge_test
+    <set>
+      <if test="disAutomaticId != null">
+        Dis_Automatic_ID = #{disAutomaticId,jdbcType=INTEGER},
+      </if>
+      <if test="dispId != null">
+        Disp_ID = #{dispId,jdbcType=VARCHAR},
+      </if>
+      <if test="disBooksid != null">
+        Dis_BooksID = #{disBooksid,jdbcType=VARCHAR},
+      </if>
+      <if test="disStaid != null">
+        Dis_StaID = #{disStaid,jdbcType=VARCHAR},
+      </if>
+      <if test="disEmpid != null">
+        Dis_EmpID = #{disEmpid,jdbcType=VARCHAR},
+      </if>
+      <if test="disSupnum != null">
+        Dis_SupNum = #{disSupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="disPacid != null">
+        dis_PacId = #{disPacid,jdbcType=CHAR},
+      </if>
+      <if test="disAmount != null">
+        Dis_Amount = #{disAmount,jdbcType=INTEGER},
+      </if>
+      <if test="workareaId != null">
+        WorkArea_ID = #{workareaId,jdbcType=VARCHAR},
+      </if>
+      <if test="disPacknum != null">
+        Dis_PackNum = #{disPacknum,jdbcType=INTEGER},
+      </if>
+      <if test="disPurchaseid != null">
+        Dis_PurchaseID = #{disPurchaseid,jdbcType=VARCHAR},
+      </if>
+      <if test="disShelfid != null">
+        dis_ShelfId = #{disShelfid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        Device_Id = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="disFlag != null">
+        Dis_Flag = #{disFlag,jdbcType=CHAR},
+      </if>
+      <if test="disIsbn != null">
+        Dis_Isbn = #{disIsbn,jdbcType=VARCHAR},
+      </if>
+      <if test="disBooksname != null">
+        Dis_BooksName = #{disBooksname,jdbcType=VARCHAR},
+      </if>
+      <if test="disPrice != null">
+        Dis_Price = #{disPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="disTotalmoney != null">
+        Dis_TotalMoney = #{disTotalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="disDiscount != null">
+        Dis_Discount = #{disDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="disRealmoney != null">
+        Dis_RealMoney = #{disRealmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="inputDate != null">
+        Input_Date = #{inputDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.WaitPackAgeTest">
+    update bu_Th_WaitPackAge_test
+    set Dis_Automatic_ID = #{disAutomaticId,jdbcType=INTEGER},
+      Disp_ID = #{dispId,jdbcType=VARCHAR},
+      Dis_BooksID = #{disBooksid,jdbcType=VARCHAR},
+      Dis_StaID = #{disStaid,jdbcType=VARCHAR},
+      Dis_EmpID = #{disEmpid,jdbcType=VARCHAR},
+      Dis_SupNum = #{disSupnum,jdbcType=VARCHAR},
+      dis_PacId = #{disPacid,jdbcType=CHAR},
+      Dis_Amount = #{disAmount,jdbcType=INTEGER},
+      WorkArea_ID = #{workareaId,jdbcType=VARCHAR},
+      Dis_PackNum = #{disPacknum,jdbcType=INTEGER},
+      Dis_PurchaseID = #{disPurchaseid,jdbcType=VARCHAR},
+      dis_ShelfId = #{disShelfid,jdbcType=VARCHAR},
+      Device_Id = #{deviceId,jdbcType=VARCHAR},
+      Dis_Flag = #{disFlag,jdbcType=CHAR},
+      Dis_Isbn = #{disIsbn,jdbcType=VARCHAR},
+      Dis_BooksName = #{disBooksname,jdbcType=VARCHAR},
+      Dis_Price = #{disPrice,jdbcType=DECIMAL},
+      Dis_TotalMoney = #{disTotalmoney,jdbcType=DECIMAL},
+      Dis_Discount = #{disDiscount,jdbcType=DECIMAL},
+      Dis_RealMoney = #{disRealmoney,jdbcType=DECIMAL},
+      Input_Date = #{inputDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

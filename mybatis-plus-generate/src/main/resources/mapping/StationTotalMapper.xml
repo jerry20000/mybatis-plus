@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StationTotalMapper">
+  <resultMap id="BaseResultMap" type="cn.sisyphe.logistics.yh.domain.station.entity.StationTotal">
+    <id column="station_id" jdbcType="CHAR" property="stationId" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="station_address" jdbcType="VARCHAR" property="stationAddress" />
+    <result column="station_class" jdbcType="CHAR" property="stationClass" />
+    <result column="station_tel" jdbcType="VARCHAR" property="stationTel" />
+    <result column="station_server" jdbcType="VARCHAR" property="stationServer" />
+    <result column="station_database" jdbcType="VARCHAR" property="stationDatabase" />
+    <result column="station_ip" jdbcType="VARCHAR" property="stationIp" />
+    <result column="station_parent" jdbcType="CHAR" property="stationParent" />
+    <result column="a_id" jdbcType="CHAR" property="aId" />
+    <result column="p_id" jdbcType="CHAR" property="pId" />
+    <result column="city_id" jdbcType="CHAR" property="cityId" />
+    <result column="js_discount" jdbcType="DECIMAL" property="jsDiscount" />
+    <result column="last_mod_date" jdbcType="TIMESTAMP" property="lastModDate" />
+    <result column="last_trans_date" jdbcType="TIMESTAMP" property="lastTransDate" />
+    <result column="notrigger" jdbcType="CHAR" property="notrigger" />
+    <result column="local_flag" jdbcType="CHAR" property="localFlag" />
+    <result column="stock_arrear_method" jdbcType="CHAR" property="stockArrearMethod" />
+    <result column="js_style" jdbcType="CHAR" property="jsStyle" />
+    <result column="station_account" jdbcType="CHAR" property="stationAccount" />
+    <result column="jh_style" jdbcType="CHAR" property="jhStyle" />
+    <result column="short_name" jdbcType="VARCHAR" property="shortName" />
+    <result column="is_exists" jdbcType="CHAR" property="isExists" />
+    <result column="account_client" jdbcType="VARCHAR" property="accountClient" />
+    <result column="account_factory" jdbcType="VARCHAR" property="accountFactory" />
+    <result column="input_flag" jdbcType="CHAR" property="inputFlag" />
+    <result column="is_allowimport" jdbcType="CHAR" property="isAllowimport" />
+    <result column="type_id" jdbcType="CHAR" property="typeId" />
+    <result column="business_area" jdbcType="DECIMAL" property="businessArea" />
+    <result column="webURL" jdbcType="VARCHAR" property="weburl" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userPwd" jdbcType="VARCHAR" property="userpwd" />
+    <result column="TAXRATEBYPRODUCT" jdbcType="CHAR" property="taxratebyproduct" />
+    <result column="TAXRATEBYbusiness" jdbcType="DECIMAL" property="taxratebybusiness" />
+    <result column="taxratebyscale" jdbcType="CHAR" property="taxratebyscale" />
+    <result column="o_xs_amount" jdbcType="INTEGER" property="oXsAmount" />
+    <result column="h_help_input" jdbcType="VARCHAR" property="hHelpInput" />
+    <result column="StationOrder" jdbcType="VARCHAR" property="stationorder" />
+    <result column="PostCode" jdbcType="VARCHAR" property="postcode" />
+    <result column="Fax" jdbcType="VARCHAR" property="fax" />
+    <result column="EMail" jdbcType="VARCHAR" property="email" />
+    <result column="Bank" jdbcType="VARCHAR" property="bank" />
+    <result column="LegalPerson" jdbcType="VARCHAR" property="legalperson" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="Manager" jdbcType="VARCHAR" property="manager" />
+    <result column="TaxNumber" jdbcType="VARCHAR" property="taxnumber" />
+    <result column="Note" jdbcType="VARCHAR" property="note" />
+    <result column="my_department" jdbcType="VARCHAR" property="myDepartment" />
+    <result column="my_adress" jdbcType="VARCHAR" property="myAdress" />
+    <result column="my_contact_man" jdbcType="VARCHAR" property="myContactMan" />
+    <result column="my_tel" jdbcType="VARCHAR" property="myTel" />
+    <result column="is_effective" jdbcType="CHAR" property="isEffective" />
+    <result column="tj_balancef_discount" jdbcType="DECIMAL" property="tjBalancefDiscount" />
+    <result column="my_zip" jdbcType="CHAR" property="myZip" />
+    <result column="my_fax" jdbcType="VARCHAR" property="myFax" />
+    <result column="my_mail" jdbcType="VARCHAR" property="myMail" />
+    <result column="my_account" jdbcType="VARCHAR" property="myAccount" />
+    <result column="my_bank" jdbcType="VARCHAR" property="myBank" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    station_id, station_name, station_address, station_class, station_tel, station_server, 
+    station_database, station_ip, station_parent, a_id, p_id, city_id, js_discount, last_mod_date, 
+    last_trans_date, notrigger, local_flag, stock_arrear_method, js_style, station_account, 
+    jh_style, short_name, is_exists, account_client, account_factory, input_flag, is_allowimport, 
+    type_id, business_area, webURL, userName, userPwd, TAXRATEBYPRODUCT, TAXRATEBYbusiness, 
+    taxratebyscale, o_xs_amount, h_help_input, StationOrder, PostCode, Fax, EMail, Bank, 
+    LegalPerson, Account, Manager, TaxNumber, Note, my_department, my_adress, my_contact_man, 
+    my_tel, is_effective, tj_balancef_discount, my_zip, my_fax, my_mail, my_account, 
+    my_bank
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from db_station_total
+    where station_id = #{stationId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from db_station_total
+    where station_id = #{stationId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.sisyphe.logistics.yh.domain.station.entity.StationTotal">
+    insert into db_station_total (station_id, station_name, station_address, 
+      station_class, station_tel, station_server, 
+      station_database, station_ip, station_parent, 
+      a_id, p_id, city_id, js_discount, 
+      last_mod_date, last_trans_date, notrigger, 
+      local_flag, stock_arrear_method, js_style, 
+      station_account, jh_style, short_name, 
+      is_exists, account_client, account_factory, 
+      input_flag, is_allowimport, type_id, 
+      business_area, webURL, userName, 
+      userPwd, TAXRATEBYPRODUCT, TAXRATEBYbusiness, 
+      taxratebyscale, o_xs_amount, h_help_input, 
+      StationOrder, PostCode, Fax, 
+      EMail, Bank, LegalPerson, 
+      Account, Manager, TaxNumber, 
+      Note, my_department, my_adress, 
+      my_contact_man, my_tel, is_effective, 
+      tj_balancef_discount, my_zip, my_fax, 
+      my_mail, my_account, my_bank
+      )
+    values (#{stationId,jdbcType=CHAR}, #{stationName,jdbcType=VARCHAR}, #{stationAddress,jdbcType=VARCHAR}, 
+      #{stationClass,jdbcType=CHAR}, #{stationTel,jdbcType=VARCHAR}, #{stationServer,jdbcType=VARCHAR}, 
+      #{stationDatabase,jdbcType=VARCHAR}, #{stationIp,jdbcType=VARCHAR}, #{stationParent,jdbcType=CHAR}, 
+      #{aId,jdbcType=CHAR}, #{pId,jdbcType=CHAR}, #{cityId,jdbcType=CHAR}, #{jsDiscount,jdbcType=DECIMAL}, 
+      #{lastModDate,jdbcType=TIMESTAMP}, #{lastTransDate,jdbcType=TIMESTAMP}, #{notrigger,jdbcType=CHAR}, 
+      #{localFlag,jdbcType=CHAR}, #{stockArrearMethod,jdbcType=CHAR}, #{jsStyle,jdbcType=CHAR}, 
+      #{stationAccount,jdbcType=CHAR}, #{jhStyle,jdbcType=CHAR}, #{shortName,jdbcType=VARCHAR}, 
+      #{isExists,jdbcType=CHAR}, #{accountClient,jdbcType=VARCHAR}, #{accountFactory,jdbcType=VARCHAR}, 
+      #{inputFlag,jdbcType=CHAR}, #{isAllowimport,jdbcType=CHAR}, #{typeId,jdbcType=CHAR}, 
+      #{businessArea,jdbcType=DECIMAL}, #{weburl,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userpwd,jdbcType=VARCHAR}, #{taxratebyproduct,jdbcType=CHAR}, #{taxratebybusiness,jdbcType=DECIMAL}, 
+      #{taxratebyscale,jdbcType=CHAR}, #{oXsAmount,jdbcType=INTEGER}, #{hHelpInput,jdbcType=VARCHAR}, 
+      #{stationorder,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{legalperson,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR}, #{taxnumber,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{myDepartment,jdbcType=VARCHAR}, #{myAdress,jdbcType=VARCHAR}, 
+      #{myContactMan,jdbcType=VARCHAR}, #{myTel,jdbcType=VARCHAR}, #{isEffective,jdbcType=CHAR}, 
+      #{tjBalancefDiscount,jdbcType=DECIMAL}, #{myZip,jdbcType=CHAR}, #{myFax,jdbcType=VARCHAR}, 
+      #{myMail,jdbcType=VARCHAR}, #{myAccount,jdbcType=VARCHAR}, #{myBank,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.sisyphe.logistics.yh.domain.station.entity.StationTotal">
+    insert into db_station_total
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="stationAddress != null">
+        station_address,
+      </if>
+      <if test="stationClass != null">
+        station_class,
+      </if>
+      <if test="stationTel != null">
+        station_tel,
+      </if>
+      <if test="stationServer != null">
+        station_server,
+      </if>
+      <if test="stationDatabase != null">
+        station_database,
+      </if>
+      <if test="stationIp != null">
+        station_ip,
+      </if>
+      <if test="stationParent != null">
+        station_parent,
+      </if>
+      <if test="aId != null">
+        a_id,
+      </if>
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="jsDiscount != null">
+        js_discount,
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date,
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date,
+      </if>
+      <if test="notrigger != null">
+        notrigger,
+      </if>
+      <if test="localFlag != null">
+        local_flag,
+      </if>
+      <if test="stockArrearMethod != null">
+        stock_arrear_method,
+      </if>
+      <if test="jsStyle != null">
+        js_style,
+      </if>
+      <if test="stationAccount != null">
+        station_account,
+      </if>
+      <if test="jhStyle != null">
+        jh_style,
+      </if>
+      <if test="shortName != null">
+        short_name,
+      </if>
+      <if test="isExists != null">
+        is_exists,
+      </if>
+      <if test="accountClient != null">
+        account_client,
+      </if>
+      <if test="accountFactory != null">
+        account_factory,
+      </if>
+      <if test="inputFlag != null">
+        input_flag,
+      </if>
+      <if test="isAllowimport != null">
+        is_allowimport,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="businessArea != null">
+        business_area,
+      </if>
+      <if test="weburl != null">
+        webURL,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userpwd != null">
+        userPwd,
+      </if>
+      <if test="taxratebyproduct != null">
+        TAXRATEBYPRODUCT,
+      </if>
+      <if test="taxratebybusiness != null">
+        TAXRATEBYbusiness,
+      </if>
+      <if test="taxratebyscale != null">
+        taxratebyscale,
+      </if>
+      <if test="oXsAmount != null">
+        o_xs_amount,
+      </if>
+      <if test="hHelpInput != null">
+        h_help_input,
+      </if>
+      <if test="stationorder != null">
+        StationOrder,
+      </if>
+      <if test="postcode != null">
+        PostCode,
+      </if>
+      <if test="fax != null">
+        Fax,
+      </if>
+      <if test="email != null">
+        EMail,
+      </if>
+      <if test="bank != null">
+        Bank,
+      </if>
+      <if test="legalperson != null">
+        LegalPerson,
+      </if>
+      <if test="account != null">
+        Account,
+      </if>
+      <if test="manager != null">
+        Manager,
+      </if>
+      <if test="taxnumber != null">
+        TaxNumber,
+      </if>
+      <if test="note != null">
+        Note,
+      </if>
+      <if test="myDepartment != null">
+        my_department,
+      </if>
+      <if test="myAdress != null">
+        my_adress,
+      </if>
+      <if test="myContactMan != null">
+        my_contact_man,
+      </if>
+      <if test="myTel != null">
+        my_tel,
+      </if>
+      <if test="isEffective != null">
+        is_effective,
+      </if>
+      <if test="tjBalancefDiscount != null">
+        tj_balancef_discount,
+      </if>
+      <if test="myZip != null">
+        my_zip,
+      </if>
+      <if test="myFax != null">
+        my_fax,
+      </if>
+      <if test="myMail != null">
+        my_mail,
+      </if>
+      <if test="myAccount != null">
+        my_account,
+      </if>
+      <if test="myBank != null">
+        my_bank,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        #{stationId,jdbcType=CHAR},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationAddress != null">
+        #{stationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="stationClass != null">
+        #{stationClass,jdbcType=CHAR},
+      </if>
+      <if test="stationTel != null">
+        #{stationTel,jdbcType=VARCHAR},
+      </if>
+      <if test="stationServer != null">
+        #{stationServer,jdbcType=VARCHAR},
+      </if>
+      <if test="stationDatabase != null">
+        #{stationDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="stationIp != null">
+        #{stationIp,jdbcType=VARCHAR},
+      </if>
+      <if test="stationParent != null">
+        #{stationParent,jdbcType=CHAR},
+      </if>
+      <if test="aId != null">
+        #{aId,jdbcType=CHAR},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="jsDiscount != null">
+        #{jsDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastModDate != null">
+        #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notrigger != null">
+        #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="localFlag != null">
+        #{localFlag,jdbcType=CHAR},
+      </if>
+      <if test="stockArrearMethod != null">
+        #{stockArrearMethod,jdbcType=CHAR},
+      </if>
+      <if test="jsStyle != null">
+        #{jsStyle,jdbcType=CHAR},
+      </if>
+      <if test="stationAccount != null">
+        #{stationAccount,jdbcType=CHAR},
+      </if>
+      <if test="jhStyle != null">
+        #{jhStyle,jdbcType=CHAR},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="isExists != null">
+        #{isExists,jdbcType=CHAR},
+      </if>
+      <if test="accountClient != null">
+        #{accountClient,jdbcType=VARCHAR},
+      </if>
+      <if test="accountFactory != null">
+        #{accountFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="inputFlag != null">
+        #{inputFlag,jdbcType=CHAR},
+      </if>
+      <if test="isAllowimport != null">
+        #{isAllowimport,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="businessArea != null">
+        #{businessArea,jdbcType=DECIMAL},
+      </if>
+      <if test="weburl != null">
+        #{weburl,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="taxratebyproduct != null">
+        #{taxratebyproduct,jdbcType=CHAR},
+      </if>
+      <if test="taxratebybusiness != null">
+        #{taxratebybusiness,jdbcType=DECIMAL},
+      </if>
+      <if test="taxratebyscale != null">
+        #{taxratebyscale,jdbcType=CHAR},
+      </if>
+      <if test="oXsAmount != null">
+        #{oXsAmount,jdbcType=INTEGER},
+      </if>
+      <if test="hHelpInput != null">
+        #{hHelpInput,jdbcType=VARCHAR},
+      </if>
+      <if test="stationorder != null">
+        #{stationorder,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null">
+        #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null">
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="taxnumber != null">
+        #{taxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="myDepartment != null">
+        #{myDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="myAdress != null">
+        #{myAdress,jdbcType=VARCHAR},
+      </if>
+      <if test="myContactMan != null">
+        #{myContactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="myTel != null">
+        #{myTel,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffective != null">
+        #{isEffective,jdbcType=CHAR},
+      </if>
+      <if test="tjBalancefDiscount != null">
+        #{tjBalancefDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="myZip != null">
+        #{myZip,jdbcType=CHAR},
+      </if>
+      <if test="myFax != null">
+        #{myFax,jdbcType=VARCHAR},
+      </if>
+      <if test="myMail != null">
+        #{myMail,jdbcType=VARCHAR},
+      </if>
+      <if test="myAccount != null">
+        #{myAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="myBank != null">
+        #{myBank,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.sisyphe.logistics.yh.domain.station.entity.StationTotal">
+    update db_station_total
+    <set>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationAddress != null">
+        station_address = #{stationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="stationClass != null">
+        station_class = #{stationClass,jdbcType=CHAR},
+      </if>
+      <if test="stationTel != null">
+        station_tel = #{stationTel,jdbcType=VARCHAR},
+      </if>
+      <if test="stationServer != null">
+        station_server = #{stationServer,jdbcType=VARCHAR},
+      </if>
+      <if test="stationDatabase != null">
+        station_database = #{stationDatabase,jdbcType=VARCHAR},
+      </if>
+      <if test="stationIp != null">
+        station_ip = #{stationIp,jdbcType=VARCHAR},
+      </if>
+      <if test="stationParent != null">
+        station_parent = #{stationParent,jdbcType=CHAR},
+      </if>
+      <if test="aId != null">
+        a_id = #{aId,jdbcType=CHAR},
+      </if>
+      <if test="pId != null">
+        p_id = #{pId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="jsDiscount != null">
+        js_discount = #{jsDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="lastModDate != null">
+        last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTransDate != null">
+        last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notrigger != null">
+        notrigger = #{notrigger,jdbcType=CHAR},
+      </if>
+      <if test="localFlag != null">
+        local_flag = #{localFlag,jdbcType=CHAR},
+      </if>
+      <if test="stockArrearMethod != null">
+        stock_arrear_method = #{stockArrearMethod,jdbcType=CHAR},
+      </if>
+      <if test="jsStyle != null">
+        js_style = #{jsStyle,jdbcType=CHAR},
+      </if>
+      <if test="stationAccount != null">
+        station_account = #{stationAccount,jdbcType=CHAR},
+      </if>
+      <if test="jhStyle != null">
+        jh_style = #{jhStyle,jdbcType=CHAR},
+      </if>
+      <if test="shortName != null">
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="isExists != null">
+        is_exists = #{isExists,jdbcType=CHAR},
+      </if>
+      <if test="accountClient != null">
+        account_client = #{accountClient,jdbcType=VARCHAR},
+      </if>
+      <if test="accountFactory != null">
+        account_factory = #{accountFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="inputFlag != null">
+        input_flag = #{inputFlag,jdbcType=CHAR},
+      </if>
+      <if test="isAllowimport != null">
+        is_allowimport = #{isAllowimport,jdbcType=CHAR},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=CHAR},
+      </if>
+      <if test="businessArea != null">
+        business_area = #{businessArea,jdbcType=DECIMAL},
+      </if>
+      <if test="weburl != null">
+        webURL = #{weburl,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        userPwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="taxratebyproduct != null">
+        TAXRATEBYPRODUCT = #{taxratebyproduct,jdbcType=CHAR},
+      </if>
+      <if test="taxratebybusiness != null">
+        TAXRATEBYbusiness = #{taxratebybusiness,jdbcType=DECIMAL},
+      </if>
+      <if test="taxratebyscale != null">
+        taxratebyscale = #{taxratebyscale,jdbcType=CHAR},
+      </if>
+      <if test="oXsAmount != null">
+        o_xs_amount = #{oXsAmount,jdbcType=INTEGER},
+      </if>
+      <if test="hHelpInput != null">
+        h_help_input = #{hHelpInput,jdbcType=VARCHAR},
+      </if>
+      <if test="stationorder != null">
+        StationOrder = #{stationorder,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        PostCode = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        Fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMail = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        Bank = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null">
+        LegalPerson = #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        Account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null">
+        Manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="taxnumber != null">
+        TaxNumber = #{taxnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        Note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="myDepartment != null">
+        my_department = #{myDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="myAdress != null">
+        my_adress = #{myAdress,jdbcType=VARCHAR},
+      </if>
+      <if test="myContactMan != null">
+        my_contact_man = #{myContactMan,jdbcType=VARCHAR},
+      </if>
+      <if test="myTel != null">
+        my_tel = #{myTel,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffective != null">
+        is_effective = #{isEffective,jdbcType=CHAR},
+      </if>
+      <if test="tjBalancefDiscount != null">
+        tj_balancef_discount = #{tjBalancefDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="myZip != null">
+        my_zip = #{myZip,jdbcType=CHAR},
+      </if>
+      <if test="myFax != null">
+        my_fax = #{myFax,jdbcType=VARCHAR},
+      </if>
+      <if test="myMail != null">
+        my_mail = #{myMail,jdbcType=VARCHAR},
+      </if>
+      <if test="myAccount != null">
+        my_account = #{myAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="myBank != null">
+        my_bank = #{myBank,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where station_id = #{stationId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.sisyphe.logistics.yh.domain.station.entity.StationTotal">
+    update db_station_total
+    set station_name = #{stationName,jdbcType=VARCHAR},
+      station_address = #{stationAddress,jdbcType=VARCHAR},
+      station_class = #{stationClass,jdbcType=CHAR},
+      station_tel = #{stationTel,jdbcType=VARCHAR},
+      station_server = #{stationServer,jdbcType=VARCHAR},
+      station_database = #{stationDatabase,jdbcType=VARCHAR},
+      station_ip = #{stationIp,jdbcType=VARCHAR},
+      station_parent = #{stationParent,jdbcType=CHAR},
+      a_id = #{aId,jdbcType=CHAR},
+      p_id = #{pId,jdbcType=CHAR},
+      city_id = #{cityId,jdbcType=CHAR},
+      js_discount = #{jsDiscount,jdbcType=DECIMAL},
+      last_mod_date = #{lastModDate,jdbcType=TIMESTAMP},
+      last_trans_date = #{lastTransDate,jdbcType=TIMESTAMP},
+      notrigger = #{notrigger,jdbcType=CHAR},
+      local_flag = #{localFlag,jdbcType=CHAR},
+      stock_arrear_method = #{stockArrearMethod,jdbcType=CHAR},
+      js_style = #{jsStyle,jdbcType=CHAR},
+      station_account = #{stationAccount,jdbcType=CHAR},
+      jh_style = #{jhStyle,jdbcType=CHAR},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      is_exists = #{isExists,jdbcType=CHAR},
+      account_client = #{accountClient,jdbcType=VARCHAR},
+      account_factory = #{accountFactory,jdbcType=VARCHAR},
+      input_flag = #{inputFlag,jdbcType=CHAR},
+      is_allowimport = #{isAllowimport,jdbcType=CHAR},
+      type_id = #{typeId,jdbcType=CHAR},
+      business_area = #{businessArea,jdbcType=DECIMAL},
+      webURL = #{weburl,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userPwd = #{userpwd,jdbcType=VARCHAR},
+      TAXRATEBYPRODUCT = #{taxratebyproduct,jdbcType=CHAR},
+      TAXRATEBYbusiness = #{taxratebybusiness,jdbcType=DECIMAL},
+      taxratebyscale = #{taxratebyscale,jdbcType=CHAR},
+      o_xs_amount = #{oXsAmount,jdbcType=INTEGER},
+      h_help_input = #{hHelpInput,jdbcType=VARCHAR},
+      StationOrder = #{stationorder,jdbcType=VARCHAR},
+      PostCode = #{postcode,jdbcType=VARCHAR},
+      Fax = #{fax,jdbcType=VARCHAR},
+      EMail = #{email,jdbcType=VARCHAR},
+      Bank = #{bank,jdbcType=VARCHAR},
+      LegalPerson = #{legalperson,jdbcType=VARCHAR},
+      Account = #{account,jdbcType=VARCHAR},
+      Manager = #{manager,jdbcType=VARCHAR},
+      TaxNumber = #{taxnumber,jdbcType=VARCHAR},
+      Note = #{note,jdbcType=VARCHAR},
+      my_department = #{myDepartment,jdbcType=VARCHAR},
+      my_adress = #{myAdress,jdbcType=VARCHAR},
+      my_contact_man = #{myContactMan,jdbcType=VARCHAR},
+      my_tel = #{myTel,jdbcType=VARCHAR},
+      is_effective = #{isEffective,jdbcType=CHAR},
+      tj_balancef_discount = #{tjBalancefDiscount,jdbcType=DECIMAL},
+      my_zip = #{myZip,jdbcType=CHAR},
+      my_fax = #{myFax,jdbcType=VARCHAR},
+      my_mail = #{myMail,jdbcType=VARCHAR},
+      my_account = #{myAccount,jdbcType=VARCHAR},
+      my_bank = #{myBank,jdbcType=VARCHAR}
+    where station_id = #{stationId,jdbcType=CHAR}
+  </update>
+</mapper>
